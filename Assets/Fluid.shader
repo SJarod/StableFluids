@@ -1,7 +1,7 @@
 ﻿// StableFluids - A GPU implementation of Jos Stam's Stable Fluids on Unity
 // https://github.com/keijiro/StableFluids
 
-Shader "Hidden/StableFluids"
+Shader "StableFluids"
 {
     Properties
     {
