@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555a4db26686441498d5bf95e79522d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipelineAsset: {fileID: 11400000, guid: 70548e1c4aeb80541ac165f476e87627, type: 2}
+  pipelineAsset: {fileID: 11400000, guid: 7ac7f745dc1e5cb48a668325af79079b, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

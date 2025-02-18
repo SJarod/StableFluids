@@ -129,7 +129,7 @@ public class FluidFeature : ScriptableRendererFeature
     // This method is called when setting up the renderer once per-camera.
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
     {
-        m_ScriptablePass.SetSource(renderingData.cameraData.camera.activeTexture.);
+        m_ScriptablePass.SetSource(renderer.cameraColorTargetHandle);
         renderer.EnqueuePass(m_ScriptablePass);
     }
 }

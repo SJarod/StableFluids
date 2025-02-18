@@ -4,8 +4,10 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - _initial: {instanceID: 0}
   - _compute: {fileID: 7200000, guid: cd1f70f1f6b4beb45a02e1c088f0a109, type: 3}
   - _shader: {fileID: 4800000, guid: 0486f5f9fa757fa49a5b9613050036fb, type: 3}
+  - _shaderSheet: {fileID: 2100000, guid: 6ee5a44a082065040a3ae13f096c3ed0, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

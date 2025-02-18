@@ -26,7 +26,7 @@ namespace StableFluids
 
         #region Private members
 
-        Material _shaderSheet;
+        [SerializeField] Material _shaderSheet;
         Vector2 _previousInput;
 
         static class Kernels
@@ -39,7 +39,7 @@ namespace StableFluids
             public const int Jacobi2 = 5;
         }
 
-        int ThreadCountX { get { return (_resolution                                + 7) / 8; } }
+        int ThreadCountX { get { return (_resolution + 7) / 8; } }
         int ThreadCountY { get { return (_resolution * Screen.height / Screen.width + 7) / 8; } }
 
         int ResolutionX { get { return ThreadCountX * 8; } }
@@ -65,7 +65,7 @@ namespace StableFluids
             if (componentCount == 1) format = RenderTextureFormat.RHalf;
             if (componentCount == 2) format = RenderTextureFormat.RGHalf;
 
-            if (width  == 0) width  = ResolutionX;
+            if (width == 0) width = ResolutionX;
             if (height == 0) height = ResolutionY;
 
             var rt = new RenderTexture(width, height, 0, format);
@@ -85,7 +85,8 @@ namespace StableFluids
 
         void Start()
         {
-            _shaderSheet = new Material(_shader);
+            if (!_shaderSheet)
+                _shaderSheet = new Material(_shader);
 
             VFB.V1 = AllocateBuffer(2);
             VFB.V2 = AllocateBuffer(2);
@@ -98,9 +99,9 @@ namespace StableFluids
 
             Graphics.Blit(_initial, _colorRT1);
 
-        #if UNITY_IOS
+#if UNITY_IOS
             Application.targetFrameRate = 60;
-        #endif
+#endif
         }
 
         void OnDestroy()
@@ -124,7 +125,7 @@ namespace StableFluids
 
             // Input point
             var input = new Vector2(
-                (Input.mousePosition.x - Screen.width  * 0.5f) / Screen.height,
+                (Input.mousePosition.x - Screen.width * 0.5f) / Screen.height,
                 (Input.mousePosition.y - Screen.height * 0.5f) / Screen.height
             );
 
