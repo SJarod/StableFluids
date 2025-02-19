@@ -26,6 +26,7 @@ namespace StableFluids
 
         #region Private members
 
+        [SerializeField] bool bUseGraphicsBlit = true;
         [SerializeField] Material _shaderSheet;
         Vector2 _previousInput;
 
@@ -207,6 +208,8 @@ namespace StableFluids
             _shaderSheet.SetVector("_ForceOrigin", input + offs);
             _shaderSheet.SetFloat("_ForceExponent", _exponent);
             _shaderSheet.SetTexture("_VelocityField", VFB.V1);
+            if (!bUseGraphicsBlit)
+                _shaderSheet.SetTexture("_MainTex", _colorRT1);
             Graphics.Blit(_colorRT1, _colorRT2, _shaderSheet, 0);
 
             // Swap the color buffers.
